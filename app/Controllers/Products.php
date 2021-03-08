@@ -16,7 +16,7 @@ class Products extends ResourceController
 		return $this->respond($data, 200);
 	}
 
-	public function read($id = null) {
+	public function show($id = null) {
 		$model = new ProductModel();
 		$data = $model->getWhere(['id' => $id])->getResult();
 		return $this->respond($data) ? $data : $data->failNotFound('Data not found with id '.$id);
@@ -36,9 +36,8 @@ class Products extends ResourceController
 			'messages' => [
 				'success' => 'Data Saved'
 			],
-			'data' => $data
 		];
-		return $this->respondCreated($response, 201);
+		return $this->respondCreated($data, 201);
 	}
 
 	public function update($id = null) {
