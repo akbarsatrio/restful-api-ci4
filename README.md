@@ -2,8 +2,7 @@
 
 ## Instalasi
 
-Ubah nama file `env` menjadi `.env`
-Ubah pengaturan database dan hilangkan `#` pada file `.env`
+Ubah nama file `env` menjadi `.env` lalu ubah pengaturan database dan hilangkan `#` pada file `.env`
 ```
 # database.default.hostname = localhost
 # database.default.database = ci4
