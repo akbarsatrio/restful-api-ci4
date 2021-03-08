@@ -28,7 +28,6 @@ class Products extends ResourceController
 			'product_name' => $this->request->getPost('product_name'),
 			'product_price' => $this->request->getPost('product_price')
 		];
-		$data = json_decode(file_get_contents("php://input"));
 		$model->insert($data);
 		$response = [
 			'status'   => 201,
@@ -36,8 +35,9 @@ class Products extends ResourceController
 			'messages' => [
 				'success' => 'Data Saved'
 			],
+			'data' => $data
 		];
-		return $this->respondCreated($data, 201);
+		return $this->respondCreated($response, 201);
 	}
 
 	public function update($id = null) {
